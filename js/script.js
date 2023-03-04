@@ -20,3 +20,99 @@
         #se il campo di testo non è vuoto aggiungere il messaggio in coda agli altri del personaggio selezionato
 
 */
+
+function utenti() {
+    /* 
+    primo tentativo 
+     let li=``;
+ 
+     for(let i in nomeUtenti){  
+         if(i!=0){
+ 
+             if(genereUt[i]=="m"){
+                 li+=`<li><div class="material-symbols-outlined icone">
+                 face
+             </div>                      
+             `+nomeUtenti[i]+` `+cognomeUtenti[i]`+</li>
+             `;
+             }else{
+                 li+=`<li><div class="material-symbols-outlined icone">
+                 face_3
+             </div> 
+             `+nomeUtenti[i]+` `+cognomeUtenti[i]+`</li>
+             `;
+             }                     
+         }     
+     }
+ 
+     document.querySelector("aside").innerHTML = li;
+    */
+
+     //secondo tentativo
+    let utente = " ";
+
+    for (let i in nomeUtenti) {
+
+        if (i != 0) {
+            utente += creaut(nomeUtenti[i], cognomeUtenti[i], i);
+        }
+    }
+
+    document.getElementById("listUtenti").innerHTML = utente;
+
+}
+
+
+
+function creaut(nomeUtenti, cognomeUtenti, i) {
+    let genere = "";
+
+    if (genereUt[i] == "m") {
+
+        genere = "face";
+    }
+    else {
+        genere = "face_3";
+    }
+
+    return `
+        <li>
+            <div onclick="cambiaHeader(i)" class="material-symbols-outlined icone">
+                ${genere}
+            </div>
+            ${nomeUtenti + '.' + cognomeUtenti.substring(0, 1)}
+        </li>
+    `;
+}
+
+
+function cambiaHeader(){
+
+
+    let header=``;
+    let genere = "";
+
+
+    if (genereUt[i] == "m") {
+
+        genere = "face";
+    }
+    else {
+        genere = "face_3";
+    }
+
+    header+=`
+        <div class="material-symbols-outlined icone">
+            `+genere+`
+        </div>
+        <div>
+            <div id="divNome">`+nomeUtenti[i]+cognomeUtenti+`</div>
+            <div id="divUltimoMes">Oggi alle 9:45</div>
+        </div>
+    `
+    
+
+}
+
+
+
